@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoneHaven Realm Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brandIcon">⛏️</div>
+        <div>
+          <h1>StoneHaven</h1>
+          <p>Realm Status Dashboard</p>
+        </div>
+      </div>
+
+      <nav>
+        <button onclick="showSection('dashboard')" class="navBtn active">Dashboard</button>
+        <button onclick="showSection('setup')" class="navBtn">Setup Notes</button>
+        <button onclick="showSection('reset')" class="navBtn">Reset Message</button>
+        <button onclick="showSection('troubleshooting')" class="navBtn">Troubleshooting</button>
+        <button onclick="showSection('backup')" class="navBtn">Code Backup</button>
+      </nav>
+
+      <div class="sideCard">
+        <b>Personal Use Only</b>
+        <p>No secrets, tokens, webhooks, or Microsoft login info are stored here.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+
+      <section id="dashboard" class="page activePage">
+        <div class="topBar">
+          <div>
+            <h2>StoneHaven Realm Status</h2>
+            <p class="muted">Personal control hub for your Discord Realm status setup.</p>
+          </div>
+
+          <div class="statusPill">
+            <span></span>
+            System Online
+          </div>
+        </div>
+
+        <div class="grid two">
+
+          <div class="panel">
+            <h3>Discord Status Preview</h3>
+
+            <div class="discordPreview">
+              <div class="discordThumb"></div>
+
+              <h4>StoneHaven Status</h4>
+
+              <div class="field">
+                <b>Online Players</b>
+                <p>aDabWillDoYah14<br>Ir0niclife6</p>
+              </div>
+
+              <div class="miniGrid">
+                <div class="field">
+                  <b>Total Online</b>
+                  <p>2 / 10</p>
+                </div>
+
+                <div class="field">
+                  <b>Last Checked</b>
+                  <p>Today at 4:34 PM</p>
+                </div>
+              </div>
+
+              <div class="footerText">Auto-updating Realm Status</div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Quick Links</h3>
+
+            <div class="quickLinks">
+              <a href="https://github.com/ShadowNoct/Realm-Status/actions" target="_blank">GitHub Actions</a>
+              <a href="https://cron-job.org" target="_blank">cron-job.org</a>
+              <a href="https://github.com/ShadowNoct/Realm-Status" target="_blank">Realm-Status Repo</a>
+              <a href="https://github.com/ShadowNoct/minecraft-lottery" target="_blank">Image Hosting Repo</a>
+              <a href="https://www.microsoft.com/link" target="_blank">Microsoft Link Login</a>
+              <a href="https://shadownoct.github.io/minecraft-lottery/BF8DF123-42C4-4FA9-9750-017CF960D24F.png?v=2" target="_blank">Current Icon URL</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="grid three">
+          <div class="statBox">
+            <span>Realm</span>
+            <b>StoneHaven</b>
+          </div>
+
+          <div class="statBox">
+            <span>Discord Channel</span>
+            <b>#online</b>
+          </div>
+
+          <div class="statBox">
+            <span>Trigger</span>
+            <b>cron-job.org</b>
+          </div>
+        </div>
+      </section>
+
+      <section id="setup" class="page">
+        <h2>Current Setup Notes</h2>
+
+        <div class="panel">
+          <h3>How It Works</h3>
+          <div class="steps">
+            <div><span>1</span>cron-job.org triggers the GitHub workflow.</div>
+            <div><span>2</span>GitHub Actions runs <b>status.js</b>.</div>
+            <div><span>3</span>The alt Microsoft account checks StoneHaven online players.</div>
+            <div><span>4</span>XUIDs are converted into Xbox gamertags.</div>
+            <div><span>5</span>The permanent Discord message is edited in #online.</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>GitHub Variables</h3>
+          <div class="infoRows">
+            <div><b>REALM_NAME</b><span>StoneHaven</span></div>
+            <div><b>STATUS_MESSAGE_ID</b><span>Discord message ID or none</span></div>
+            <div><b>REALM_ICON_URL</b><span>Public image URL with ?v=2 if needed</span></div>
+            <div><b>DISCORD_WEBHOOK_URL</b><span>Saved as a GitHub Secret, not shown here</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reset" class="page">
+        <h2>Reset Permanent Discord Message</h2>
+
+        <div class="panel">
+          <h3>Use this when the bot avatar/icon does not update</h3>
+
+          <div class="steps">
+            <div><span>1</span>Disable cron-job.org for a minute.</div>
+            <div><span>2</span>Set <b>STATUS_MESSAGE_ID</b> to <b>none</b>.</div>
+            <div><span>3</span>Run the GitHub workflow manually.</div>
+            <div><span>4</span>Copy the new message ID from the workflow logs.</div>
+            <div><span>5</span>Save the new ID back into <b>STATUS_MESSAGE_ID</b>.</div>
+            <div><span>6</span>Delete the old Discord status message.</div>
+            <div><span>7</span>Turn cron-job.org back on.</div>
+          </div>
+        </div>
+
+        <div class="warning">
+          The code treats <b>none</b> and <b>NONE</b> as blank, so it creates a new permanent message.
+        </div>
+      </section>
+
+      <section id="troubleshooting" class="page">
+        <h2>Troubleshooting</h2>
+
+        <div class="panel">
+          <div class="fix">
+            <b>Workflow says Cannot find package prismarine-auth</b>
+            <p>status.yml is missing the <code>npm install</code> step.</p>
+          </div>
+
+          <div class="fix">
+            <b>Microsoft login asks every run</b>
+            <p>The auth cache step is missing or did not save. Check <code>actions/cache@v4</code> with <code>path: auth-cache</code>.</p>
+          </div>
+
+          <div class="fix">
+            <b>Thumbnail shows the wrong image</b>
+            <p>Add a cache buster to the image URL, like <code>?v=2</code>.</p>
+          </div>
+
+          <div class="fix">
+            <b>Bot avatar does not update</b>
+            <p>Set <code>STATUS_MESSAGE_ID</code> to <code>none</code>, run workflow, save the new ID.</p>
+          </div>
+
+          <div class="fix">
+            <b>Cron is not running</b>
+            <p>Check cron-job.org is enabled and the test run returns <code>204 No Content</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="backup" class="page">
+        <h2>Code Backup Notes</h2>
+
+        <div class="panel">
+          <h3>Files Used</h3>
+
+          <div class="fileCards">
+            <div>
+              <b>package.json</b>
+              <p>Installs prismarine-auth and prismarine-realms.</p>
+            </div>
+
+            <div>
+              <b>status.js</b>
+              <p>Main bot logic. Checks online players, converts gamertags, edits Discord message.</p>
+            </div>
+
+            <div>
+              <b>.github/workflows/status.yml</b>
+              <p>GitHub Actions workflow. Restores auth cache, installs packages, runs status.js.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Important Reminder</h3>
+          <p class="muted">
+            This dashboard is only a personal control hub. Do not paste Discord webhook URLs,
+            GitHub tokens, Microsoft login info, or auth cache data into this website.
+          </p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
