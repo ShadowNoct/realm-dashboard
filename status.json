@@ -1,9 +1,10 @@
 {
   "onlinePlayers": [
-    "DarkKnight"
+    "DarkKnight",
+    "Ir0niclife6"
   ],
-  "totalOnline": 1,
+  "totalOnline": 2,
   "maxPlayers": 10,
-  "lastChecked": "Today at 12:10 PM",
-  "updatedAt": "2026-06-02T15:10:22.805Z"
+  "lastChecked": "Today at 12:12 PM",
+  "updatedAt": "2026-06-02T15:12:27.374Z"
 }
