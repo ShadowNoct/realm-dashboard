@@ -1,9 +1,7 @@
 {
-  "onlinePlayers": [
-    "MrRanger07"
-  ],
-  "totalOnline": 1,
+  "onlinePlayers": [],
+  "totalOnline": 0,
   "maxPlayers": 10,
-  "lastChecked": "Today at 10:18 AM",
-  "updatedAt": "2026-06-02T13:18:18.039Z"
+  "lastChecked": "Today at 10:20 AM",
+  "updatedAt": "2026-06-02T13:20:22.789Z"
 }
