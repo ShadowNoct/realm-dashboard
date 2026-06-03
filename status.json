@@ -1,9 +1,7 @@
 {
-  "onlinePlayers": [
-    "JAMRIOT"
-  ],
-  "totalOnline": 1,
+  "onlinePlayers": [],
+  "totalOnline": 0,
   "maxPlayers": 10,
-  "lastChecked": "Today at 3:04 AM",
-  "updatedAt": "2026-06-03T06:04:14.023Z"
+  "lastChecked": "Today at 3:06 AM",
+  "updatedAt": "2026-06-03T06:06:15.597Z"
 }
