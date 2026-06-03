@@ -1,10 +1,7 @@
 {
-  "onlinePlayers": [
-    "aDabWillDoYah14",
-    "Bwoody8121"
-  ],
-  "totalOnline": 2,
+  "onlinePlayers": [],
+  "totalOnline": 0,
   "maxPlayers": 10,
-  "lastChecked": "Today at 8:42 PM",
-  "updatedAt": "2026-06-03T23:42:18.564Z"
+  "lastChecked": "Today at 8:44 PM",
+  "updatedAt": "2026-06-03T23:44:12.754Z"
 }
