@@ -1,12 +1,7 @@
 {
-  "onlinePlayers": [
-    "aDabWillDoYah14",
-    "DarkKnight",
-    "Ir0niclife6",
-    "piperdez"
-  ],
-  "totalOnline": 4,
+  "onlinePlayers": [],
+  "totalOnline": 0,
   "maxPlayers": 10,
-  "lastChecked": "Today at 10:44 PM",
-  "updatedAt": "2026-06-04T01:44:13.593Z"
+  "lastChecked": "Today at 10:46 PM",
+  "updatedAt": "2026-06-04T01:46:12.844Z"
 }
